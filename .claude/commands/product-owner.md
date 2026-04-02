@@ -68,13 +68,41 @@ After human approval:
 1. Create Jira Epic with `createJiraIssue` (Epic type ID: 10000, Organization: Ennoventure Internal ID: 10369)
 2. Create Confluence page with `createConfluencePage` (spaceId: 12124263, parentId: 12124320)
 
-**Always** include in the Epic description:
-- Problem statement
-- Customer signals (named customers + ticket references)
-- Market opportunity / TAM
-- Solution summary
-- Success metrics
-- Links to Confluence, Linear, GitHub PRD
+### Jira Epic — Content Standard
+
+Jira tickets are read by engineers and designers. Keep them **concise and unambiguous**. The PRD is where depth lives — Jira is the pointer and the brief.
+
+**What to include:**
+
+```markdown
+## Overview
+1–2 sentences: what this is and why it exists.
+
+## Problem
+2–3 bullet points. Specific, not generic. Name the blind spot or gap.
+
+## Customer Signals
+- **[Customer name]** ([Existing/Prospective]): [one-line need] — [ticket ref if available]
+
+## Solution
+How Ennoventure addresses the problem. Include the two modes if applicable
+(e.g. live scan vs. on-demand). Keep to 3–5 bullet points max.
+
+## Use Cases (MVP)
+- [Use case 1]
+- [Use case 2]
+(max 5 bullets, no sub-bullets)
+
+## Related
+- [Ticket refs, PRD path, Linear link]
+```
+
+**What NOT to include in Jira:**
+- Market opportunity tables or TAM numbers (belongs in PRD)
+- Technical architecture or pipeline diagrams (belongs in PRD / Eng design doc)
+- Success metrics or KPI targets (belongs in PRD)
+- Non-functional requirements (belongs in PRD)
+- More than 400 words total — if it's longer, it's too detailed for Jira
 
 ---
 
