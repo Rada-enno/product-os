@@ -2,8 +2,23 @@
 
 ## Model Configuration
 - PM Agent (planning): Opus — always start with /plan
-- All sub-agents (execution): Sonnet
+- All sub-agents (execution): Opus
 - Never skip /plan for PM Agent — brainstorm before delegating
+
+## Skills
+All agents are available as slash commands. See `.claude/skills.md` for the full reference.
+Each skill includes a **human feedback loop** — agents present drafts and wait for explicit
+approval before touching any external system (Jira, Confluence, Linear, Figma, PostHog).
+
+| Skill | Command |
+|---|---|
+| PM Agent (orchestrator) | `/pm-agent` |
+| Product Owner | `/product-owner` |
+| Product Strategy | `/product-strategy` |
+| UX Designer | `/ux-designer` |
+| PRD Writer | `/prd-writer` |
+| GTM Manager | `/gtm-manager` |
+| Analytics Agent | `/analytics-agent` |
 
 ---
 
