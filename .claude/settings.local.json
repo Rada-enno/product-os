@@ -20,7 +20,8 @@
       "mcp__claude_ai_Atlassian_Rovo__getAccessibleAtlassianResources",
       "mcp__claude_ai_Atlassian_Rovo__searchJiraIssuesUsingJql",
       "mcp__claude_ai_Atlassian_Rovo__searchConfluenceUsingCql",
-      "Bash(cd \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS\" && git add .claude/settings.local.json .claude/statusline-command.sh && git commit -m \"$\\(cat <<'EOF'\nchore\\(claude\\): update local settings and add statusline command\n\n- Add MCP tool permissions for Atlassian Rovo, Linear, and related tools\n- Add statusline-command.sh for Claude Code status line integration\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(cd \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS\" && git add .claude/settings.local.json .claude/statusline-command.sh && git commit -m \"$\\(cat <<'EOF'\nchore\\(claude\\): update local settings and add statusline command\n\n- Add MCP tool permissions for Atlassian Rovo, Linear, and related tools\n- Add statusline-command.sh for Claude Code status line integration\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(cd \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS\" && git push origin main)"
     ]
   },
   "statusLine": {
