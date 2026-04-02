@@ -6,19 +6,21 @@
 - Never skip /plan for PM Agent — brainstorm before delegating
 
 ## Skills
-All agents are available as slash commands. See `.claude/skills.md` for the full reference.
-Each skill includes a **human feedback loop** — agents present drafts and wait for explicit
-approval before touching any external system (Jira, Confluence, Linear, Figma, PostHog).
+All agents are available as slash commands. Each lives in `.claude/skills/<agent>/`:
+- `skill.md` — the agent's full prompt and behaviour rules
+- `example.md` — annotated example showing the human feedback loop in action
 
-| Skill | Command |
+To amend an agent: edit `.claude/skills/<agent>/skill.md`. Changes take effect on next invocation.
+
+| Command | Skill path |
 |---|---|
-| PM Agent (orchestrator) | `/pm-agent` |
-| Product Owner | `/product-owner` |
-| Product Strategy | `/product-strategy` |
-| UX Designer | `/ux-designer` |
-| PRD Writer | `/prd-writer` |
-| GTM Manager | `/gtm-manager` |
-| Analytics Agent | `/analytics-agent` |
+| `/pm-agent` | `.claude/skills/pm-agent/` |
+| `/product-owner` | `.claude/skills/product-owner/` |
+| `/product-strategy` | `.claude/skills/product-strategy/` |
+| `/ux-designer` | `.claude/skills/ux-designer/` |
+| `/prd-writer` | `.claude/skills/prd-writer/` |
+| `/gtm-manager` | `.claude/skills/gtm-manager/` |
+| `/analytics-agent` | `.claude/skills/analytics-agent/` |
 
 ---
 
