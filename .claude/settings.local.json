@@ -1,7 +1,30 @@
 {
   "permissions": {
     "allow": [
-      "Bash(brew install gh 2>&1 | tail -5)"
+      "Bash(brew install gh 2>&1 | tail -5)",
+      "mcp__claude_ai_Linear__list_projects",
+      "mcp__claude_ai_Atlassian_Rovo__getJiraIssueTypeMetaWithFields",
+      "Bash(cat \"/Users/r.vivek/.claude/projects/-Users-r-vivek-Library-CloudStorage-OneDrive-EnnoventureINC-Documents-Product-OS/576fafe1-b9d1-4540-9cde-3d3e6a2a9da8/tool-results/mcp-claude_ai_Atlassian_Rovo-getJiraIssueTypeMetaWithFields-1775126111484.txt\" | python3 -c \"\nimport json, sys\ndata = json.load\\(sys.stdin\\)\ntext = data[0]['text']\nfields = json.loads\\(text\\)\nfor f in fields:\n    fid = f.get\\('fieldId',''\\)\n    name = f.get\\('name',''\\)\n    required = f.get\\('required', False\\)\n    if required or 'org' in fid.lower\\(\\) or 'org' in name.lower\\(\\) or fid == 'customfield_10107':\n        print\\(f'ID: {fid} | Name: {name} | Required: {required}'\\)\n        allowed = f.get\\('allowedValues', []\\)\n        if allowed:\n            for v in allowed[:5]:\n                print\\(f'  Value: {v}'\\)\n\")",
+      "Bash(python3 -c \"\nimport json\nwith open\\('/Users/r.vivek/.claude/projects/-Users-r-vivek-Library-CloudStorage-OneDrive-EnnoventureINC-Documents-Product-OS/576fafe1-b9d1-4540-9cde-3d3e6a2a9da8/tool-results/mcp-claude_ai_Atlassian_Rovo-getJiraIssueTypeMetaWithFields-1775126111484.txt'\\) as f:\n    data = json.load\\(f\\)\ntext = data[0]['text']\nobj = json.loads\\(text\\)\n# obj might be a dict with 'fields' key\nif isinstance\\(obj, dict\\):\n    fields = obj.get\\('fields', obj.get\\('values', []\\)\\)\n    print\\('Keys:', list\\(obj.keys\\(\\)\\)[:10]\\)\n    for fid, fdata in \\(fields.items\\(\\) if isinstance\\(fields, dict\\) else enumerate\\(fields\\)\\):\n        name = fdata.get\\('name',''\\) if isinstance\\(fdata, dict\\) else ''\n        required = fdata.get\\('required', False\\) if isinstance\\(fdata, dict\\) else False\n        if required or 'customfield_10107' in str\\(fid\\) or 'org' in str\\(name\\).lower\\(\\):\n            print\\(f'ID: {fid} | Name: {name} | Required: {required}'\\)\n            allowed = fdata.get\\('allowedValues', []\\) if isinstance\\(fdata, dict\\) else []\n            for v in allowed[:3]:\n                print\\(f'  -> {v}'\\)\n\")",
+      "mcp__claude_ai_Atlassian_Rovo__createJiraIssue",
+      "mcp__claude_ai_Atlassian_Rovo__createConfluencePage",
+      "mcp__claude_ai_Atlassian_Rovo__getPagesInConfluenceSpace",
+      "Bash(python3 -c \"\nimport json\nwith open\\('/Users/r.vivek/.claude/projects/-Users-r-vivek-Library-CloudStorage-OneDrive-EnnoventureINC-Documents-Product-OS/576fafe1-b9d1-4540-9cde-3d3e6a2a9da8/tool-results/toolu_01NdAG75SZ3pz2qZ4W6g3UUA.json'\\) as f:\n    data = json.load\\(f\\)\nobj = json.loads\\(data[0]['text']\\)\nfor p in obj['results']:\n    pid = p.get\\('id'\\)\n    title = p.get\\('title'\\)\n    parent = p.get\\('parentId',''\\)\n    print\\(f'ID: {pid} | Parent: {parent} | Title: {title}'\\)\n\")",
+      "mcp__claude_ai_Atlassian_Rovo__getConfluencePageFooterComments",
+      "mcp__claude_ai_Atlassian_Rovo__getConfluencePage",
+      "mcp__claude_ai_Atlassian_Rovo__getConfluencePageInlineComments",
+      "mcp__claude_ai_Atlassian_Rovo__updateConfluencePage",
+      "Bash(cd \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS\" && git stash && git pull --rebase origin main && git stash pop && git push origin main)",
+      "Bash(BASE=\"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS/.claude\"\nrm -rf \"$BASE/commands\"\nrm -f \"$BASE/skills.md\"\necho \"Cleaned up. New structure:\"\nfind \"$BASE/skills\" -type f | sort)",
+      "Bash(cd \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS\" && git reset HEAD .claude/settings.local.json && git commit -m \"$\\(cat <<'EOF'\nrefactor\\(skills\\): restructure to skills/<agent>/{skill,example}.md\n\n- Move flat .claude/commands/<agent>.md → .claude/skills/<agent>/skill.md\n- Add example.md per agent showing the 3-gate human feedback loop in action\n- Remove .claude/skills.md \\(flat reference doc — superseded by folder structure\\)\n- Update CLAUDE.md: point skill references to new .claude/skills/<agent>/ paths\n\nNew structure:\n  .claude/skills/\n    pm-agent/           skill.md + example.md\n    product-owner/      skill.md + example.md\n    product-strategy/   skill.md + example.md\n    ux-designer/        skill.md + example.md\n    prd-writer/         skill.md + example.md\n    gtm-manager/        skill.md + example.md\n    analytics-agent/    skill.md + example.md\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git push origin main)",
+      "mcp__claude_ai_Atlassian_Rovo__getAccessibleAtlassianResources",
+      "mcp__claude_ai_Atlassian_Rovo__searchJiraIssuesUsingJql",
+      "mcp__claude_ai_Atlassian_Rovo__searchConfluenceUsingCql",
+      "Bash(cd \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS\" && git add .claude/settings.local.json .claude/statusline-command.sh && git commit -m \"$\\(cat <<'EOF'\nchore\\(claude\\): update local settings and add statusline command\n\n- Add MCP tool permissions for Atlassian Rovo, Linear, and related tools\n- Add statusline-command.sh for Claude Code status line integration\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"/Users/r.vivek/Library/CloudStorage/OneDrive-EnnoventureINC/Documents/Product OS/.claude/statusline-command.sh\""
   }
 }
